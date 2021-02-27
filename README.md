@@ -31,4 +31,10 @@ Step 3: `pip install train_300.py`
 
 ## Test
 You can look `predict_image.ipynb`.  
-Or 
+
+### Execute results
+![image01](./image/06694_result.jpg)
+
+## Evalutate model
+Step 1: You need use `pip install predict_text.py` produce predicted results' text file.  
+Step 2: `pip install evaluate.py`  
