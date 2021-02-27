@@ -83,21 +83,7 @@ def SSD300(img_size, n_classes, l2_reg=5e-4,
     
     conv9_1 = ssd_conv(conv8_2, 64, (1, 1), padding='same', name='conv9_1')
     conv9_2 = ssd_conv(conv9_1, 128, (3, 3), strides=(2, 2), padding='same', name='conv9_2')
-    '''
-    conv6_1 = Conv2D(256, (1, 1), activation='relu', padding='same', name='conv6_1')(block13)
-    conv6_1 = ZeroPadding2D(padding=((1, 1), (1, 1)), name='conv6_padding')(conv6_1)
-    conv6_2 = Conv2D(512, (3, 3), strides=(2, 2), activation='relu', padding='valid', name='conv6_2')(conv6_1)
-    
-    conv7_1 = Conv2D(128, (1, 1), activation='relu', padding='same', name='conv7_1')(conv6_2)
-    conv7_1 = ZeroPadding2D(padding=((1, 1), (1, 1)), name='conv7_padding')(conv7_1)
-    conv7_2 = Conv2D(256, (3, 3), strides=(2, 2), activation='relu', padding='valid', name='conv7_2')(conv7_1)
-    
-    conv8_1 = Conv2D(128, (1, 1), activation='relu', padding='same', name='conv8_1')(conv7_2)
-    conv8_2 = Conv2D(256, (3, 3), activation='relu', padding='valid', name='conv8_2')(conv8_1)
-    
-    conv9_1 = Conv2D(128, (1, 1), activation='relu', padding='same',  name='conv9_1')(conv8_2)
-    conv9_2 = Conv2D(256, (3, 3), activation='relu', padding='valid', name='conv9_2')(conv9_1)
-    '''
+
     # Build SSD network
 
     conv4_3_norm = Normalize(20, name='conv4_3_norm')(block11)

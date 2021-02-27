@@ -126,21 +126,7 @@ def SSD300(img_size, n_classes,
     stage5 = ReLU(6., name='out_relu')(stage5)
 
     print("Stage5 shape:{}".format(stage5.shape))
-    '''
-    conv6_1 = Conv2D(256, (1, 1), activation='relu', padding='same', name='conv6_1')(stage5)
-    conv6_1 = ZeroPadding2D(padding=((1, 1), (1, 1)), name='conv6_padding')(conv6_1)
-    conv6_2 = Conv2D(512, (3, 3), strides=(2, 2), activation='relu', padding='valid', name='conv6_2')(conv6_1)
-    
-    conv7_1 = Conv2D(128, (1, 1), activation='relu', padding='same', name='conv7_1')(conv6_2)
-    conv7_1 = ZeroPadding2D(padding=((1, 1), (1, 1)), name='conv7_padding')(conv7_1)
-    conv7_2 = Conv2D(256, (3, 3), strides=(2, 2), activation='relu', padding='valid', name='conv7_2')(conv7_1)
-    
-    conv8_1 = Conv2D(128, (1, 1), activation='relu', padding='same', name='conv8_1')(conv7_2)
-    conv8_2 = Conv2D(256, (3, 3), activation='relu', padding='valid', name='conv8_2')(conv8_1)
-    
-    conv9_1 = Conv2D(128, (1, 1), activation='relu', padding='same',  name='conv9_1')(conv8_2)
-    conv9_2 = Conv2D(256, (3, 3), activation='relu', padding='valid', name='conv9_2')(conv9_1)
-    '''
+
     conv6_1 = ssd_conv(stage5, 256, (1, 1), padding='same', name='conv6_1')
     conv6_2 = ssd_conv(conv6_1, 512, (3, 3), strides=(2, 2), padding='same', name='conv6_2')
     
